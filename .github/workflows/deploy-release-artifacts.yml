@@ -14,12 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create XCFramework
-        uses: philprime/swift-create-xcframework@v2
+        run: ./Scripts/build-xcframework.sh
+        env:
+          PROJECT_FILE: Differ.xcodeproj
+          SCHEME_NAME: Differ
+          OUTPUT_DIR: ${{ runner.temp }}
 
       - name: Release XCFramework
         uses: softprops/action-gh-release@v1
         with:
           fail_on_unmatched_files: true
-          files: |
-            Differ-*.zip
-            Differ-*.sha256
+          files: ${{ runner.temp }}/Differ.xcframework.zip

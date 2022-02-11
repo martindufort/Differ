@@ -1,6 +1,6 @@
 #include "Universal-Target-Base.xcconfig"
 
-// OSX-specific default settings
+// macOS-specific default settings
 FRAMEWORK_VERSION[sdk=macosx*]                = A
 COMBINE_HIDPI_IMAGES[sdk=macosx*]             = YES
 
