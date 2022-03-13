@@ -1,4 +1,6 @@
-/// Generates arbitrarly sorted patch sequence. It is a list of steps to be applied to obtain the `to` collection from the `from` one. The sorting function lets you sort the output e.g. you might want the output patch to have insertions first.
+/// Generates an arbitrarly sorted patch sequence.
+///
+/// The patch sequence contains a list of steps to be applied to obtain the `to` collection from the `from` one. The sorting function lets you sort the output e.g. you might want the output patch to have insertions first.
 ///
 /// - Complexity: O((N+M)*D)
 ///
@@ -19,7 +21,9 @@ public extension Diff {
 
     typealias OrderedBefore = (_ fst: Diff.Element, _ snd: Diff.Element) -> Bool
 
-    /// Generates arbitrarly sorted patch sequence based on the callee. It is a list of steps to be applied to obtain the `to` collection from the `from` one. The sorting function lets you sort the output e.g. you might want the output patch to have insertions first.
+    /// Generates an arbitrarly sorted patch sequence based on the callee.
+    ///
+    /// The patch sequence contains a list of steps to be applied to obtain the `to` collection from the `from` one. The sorting function lets you sort the output e.g. you might want the output patch to have insertions first.
     ///
     /// - Complexity: O(D^2)
     ///

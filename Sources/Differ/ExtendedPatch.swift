@@ -20,10 +20,6 @@ enum BoxedDiffAndPatchElement<T> {
 }
 
 /// Single step in a patch sequence.
-///
-/// - insertion: A single patch step containing an insertion index and an element to be inserted
-/// - deletion: A single patch step containing a deletion index
-/// - move: A single patch step containing the origin and target of a move
 public enum ExtendedPatch<Element> {
     /// A single patch step containing the origin and target of a move
     case insertion(index: Int, element: Element)

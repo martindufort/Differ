@@ -6,12 +6,12 @@ public protocol DiffProtocol: Collection {
 }
 
 /// A sequence of deletions and insertions where deletions point to locations in the source and insertions point to locations in the output.
-/// Examples:
+///
+/// For example:
 /// ```
 /// "12" -> "": D(0)D(1)
 /// "" -> "12": I(0)I(1)
 /// ```
-/// - SeeAlso: Diff
 public struct Diff: DiffProtocol {
 
     public enum Element {
@@ -22,8 +22,7 @@ public struct Diff: DiffProtocol {
     /// Returns the position immediately after the given index.
     ///
     /// - Parameters:
-    ///   - i: A valid index of the collection. `i` must be less than
-    ///   `endIndex`.
+    ///   - i: A valid index of the collection. `i` must be less than `endIndex`.
     /// - Returns: The index value immediately after `i`.
     public func index(after i: Int) -> Int {
         return i + 1
@@ -68,7 +67,9 @@ public struct Point: Hashable {
     public let y: Int
 }
 
-/// A data structure representing single trace produced by the diff algorithm. See the [paper](http://www.xmailserver.org/diff2.pdf) for more information on traces.
+/// A data structure representing single trace produced by the diff algorithm.
+///
+/// See the [paper](http://www.xmailserver.org/diff2.pdf) for more information on traces.
 public struct Trace: Hashable {
     public let from: Point
     public let to: Point

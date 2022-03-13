@@ -39,9 +39,11 @@ public extension Diff {
     }
 }
 
-/// Generates a patch sequence. It is a list of steps to be applied to obtain the `to` collection from the `from` one.
+/// Generates a patch sequence.
 ///
-/// - Complexity: O((N+M)*D)
+/// The generated sequence contains a list of steps to be applied to obtain the `to` collection from the `from` one.
+///
+/// - Complexity: ```O((N+M)*D)```
 ///
 /// - Parameters:
 ///   - from: The source collection

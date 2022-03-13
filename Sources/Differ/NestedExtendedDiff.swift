@@ -23,7 +23,7 @@ public struct NestedExtendedDiff: DiffProtocol {
     /// An array of particular diff operations
     public var elements: [Element]
 
-    //// Initializes a new `NestedExtendedDiff` from a given array of diff operations.
+    /// Initializes a new ``NestedExtendedDiff`` from a given array of diff operations.
     ///
     /// - Parameters:
     ///   - elements: an array of particular diff operations
@@ -41,7 +41,7 @@ public extension Collection
     ///
     /// - Parameters:
     ///   - other: a collection to compare the calee to
-    /// - Returns: a `NestedDiff` between the calee and `other` collection
+    /// - Returns: a ``NestedDiff`` between the calee and `other` collection
     func nestedExtendedDiff(
         to: Self,
         isEqualSection: EqualityChecker<Self>,
