@@ -66,6 +66,22 @@ extension NSTableView {
         rowIndexTransform: (Int) -> Int = { $0 }
     ) {
         beginUpdates()
+        
+        // PATCH: only 1 insertion / deletion on SAME row
+        // reloadData for that row
+        if patches.count == 2 {
+            let patch1 = patches[0]
+            let patch2 = patches[1]
+            if case .deletion(let itemDelete) = patch1,
+               case .insertion(let itemInsert, _) = patch2,
+               itemInsert == itemDelete {
+                    // This is a reload of same row......
+                    reloadData(forRowIndexes: .init(integer: itemDelete), columnIndexes: .init(integer: 0))
+                    endUpdates()
+                    return
+            }
+        }
+        
         for patch in patches {
             switch patch {
             case .insertion(index: let index, element: _):
